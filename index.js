@@ -5,7 +5,7 @@ const cardObjectDefenitions = [
     {id:2,imagePath: '/images/card-JackClubs.png'},
     {id:3,imagePath: '/images/card-QueenHearts.png'},
     {id:3,imagePath: '/images/card-QueenHearts.png'},
-    {id:4,imagePath: '/images/aceOfSpades.png'},
+    {id:4,imagePath: '/images/card-AceSpades.png'},
 ]
 
 const cardBackImgPath = '/images/card-back-blue.png'
