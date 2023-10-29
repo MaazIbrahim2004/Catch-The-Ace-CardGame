@@ -3,14 +3,21 @@
 const cardObjectDefenitions = [
     {id:1,imagePath: '/images/card-KingHearts.png'},
     {id:2,imagePath: '/images/card-JackClubs.png'},
-    {id:3,imagePath: '/images/card-QueenHearts.png'},
-    {id:3,imagePath: '/images/card-QueenHearts.png'},
-    {id:4,imagePath: '/images/card-AceSpades.png'},
+    {id:3,imagePath: '/images/card-QueenDiamonds.png'},
+    {id:4,imagePath: '/images/card-AceSpades.png'}
 ]
 
 const cardBackImgPath = '/images/card-back-blue.png'
 
 const cardContainerElem = document.querySelector('.card-container')
+
+createCards()
+
+function createCards() {
+    cardObjectDefenitions.forEach(cardItem => {
+        createCard(cardItem)
+    })
+}
 
 function createCard(cardItem) {
     // creating div elements that make up the card
@@ -60,8 +67,8 @@ function createCard(cardItem) {
     // add inner card element as child element to card element
     addChildElement(cardElem, cardInnerElem)
 
-
-
+    // add card element as child element to appropriate grid cell
+    addCardToGridCell(cardElem)
 
 }
 
@@ -83,4 +90,26 @@ function addSrcToImageElem(imgElem, src) {
 
 function addChildElement( parentElem, childElem) {
     parentElem.appendChild(childElem)
+}
+
+function addCardToGridCell(cardElem) {
+    const cardPositionClassName = mapCardIdToGridCell(card)
+    const cardPosElem = document.querySelector(cardPositionClassName)
+
+    addChildElement(cardPosElem, card)
+}
+
+function mapCardIdToGridCell(card) {
+    if(card.id == 1) {
+        return '.card-pos-a'
+    }
+    else if(card.id == 2) {
+        return '.card-pos-b'
+    }
+    else if(card.id == 3) {
+        return '.card-pos-c'
+    }
+    else if(card.id == 4) {
+        return '.card-pos-d'
+    }
 }
